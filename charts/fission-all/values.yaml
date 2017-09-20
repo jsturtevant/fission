@@ -42,6 +42,9 @@ logger:
   influxdbAdmin: "admin"
   fluentdImage: fission/fluentd
 
+messageQueue:
+  type: nats-streaming
+
 ## Message queue trigger config
 ### NATS Streaming
 nats:
