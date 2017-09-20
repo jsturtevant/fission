@@ -1,14 +1,24 @@
-hash: 2703407b4ae6e28cd146b14ff6b77175a17f0f944f7d75131ac0fa0406793d5b
-updated: 2017-08-27T22:38:51.57334855+08:00
+hash: 02625ece16eeb4ad9da489957c41e62bf4d5077b64d77d66674e9c1f71503ccc
+updated: 2017-09-20T11:37:58.991789793-07:00
 imports:
+- name: github.com/Azure/azure-sdk-for-go
+  version: df4dd90d076ebbf6e87d08d3f00bfac8ff4bde1a
+  subpackages:
+  - storage
+- name: github.com/Azure/go-autorest
+  version: 48a8154950f853ae1f2a9c409e0eb1fb71119bc8
+  subpackages:
+  - autorest
+  - autorest/adal
+  - autorest/azure
+  - autorest/date
+  - autorest/to
 - name: github.com/blang/semver
   version: 60ec3488bfea7cca02b021d106d9911120d25fe9
 - name: github.com/coreos/etcd
   version: 952eb4fadeef3f840bd7557544338c985d4ed0ef
   subpackages:
   - client
-  - pkg/pathutil
-  - pkg/types
 - name: github.com/coreos/go-oidc
   version: 16c5ecc505f1efa0fe4685826fd9962c4d137e87
   subpackages:
@@ -20,7 +30,6 @@ imports:
 - name: github.com/coreos/pkg
   version: fa29b1d70f0beaddd4c7021607cc3c3be8ce94b8
   subpackages:
-  - capnslog
   - health
   - httputil
   - timeutil
@@ -30,6 +39,8 @@ imports:
   - spew
 - name: github.com/dchest/uniuri
   version: 8902c56451e9b58ff940bbe5fec35d5f9c04584a
+- name: github.com/dgrijalva/jwt-go
+  version: 24c63f56522a87ec5339cc3567883f1039378fdb
 - name: github.com/docker/distribution
   version: 6e62b398420f8c0444e34e8a69a350c139f65956
   subpackages:
@@ -61,17 +72,20 @@ imports:
 - name: github.com/go-openapi/swag
   version: 3b6d86cd965820f968760d5d419cb4add096bdd7
 - name: github.com/gogo/protobuf
-  version: 8d70fb3182befc465c4a1eac8ad4d38ff49778e2
+  version: a9cd0c35b97daf74d0ebf3514c5254814b2703b4
   subpackages:
+  - gogoproto
   - proto
+  - protoc-gen-gogo/descriptor
   - sortkeys
 - name: github.com/golang/glog
   version: 23def4e6c14b4da8ac2ed8007337bc5eb5007998
 - name: github.com/golang/protobuf
-  version: 4bd1920723d7b7c925de087aa32e2187708897f7
+  version: df1d3ca07d2d07bba352d5b73c4313b4e2a6203e
+  repo: https://github.com/golang/protobuf
   subpackages:
-  - jsonpb
   - proto
+  - ptypes/any
 - name: github.com/golang/snappy
   version: 553a641470496b2327abcac10b36396bd98e45c9
 - name: github.com/google/gofuzz
@@ -79,9 +93,13 @@ imports:
 - name: github.com/gorilla/context
   version: 08b5f424b9271eedf6f9f0ce86cb9396ed337a42
 - name: github.com/gorilla/handlers
-  version: 3a5767ca75ece5f7f1440b1d16975247f8d8b221
+  version: a4043c62cc2329bacda331d33fc908ab11ef0ec3
 - name: github.com/gorilla/mux
-  version: 392c28fe23e1c45ddba891b0320b3b5df220beea
+  version: 24fca303ac6da784b9e8269f724ddeb0b2eea5e7
+- name: github.com/graymeta/stow
+  version: da285caa6daa337ae04a9ac603dbaf9009ffe687
+  subpackages:
+  - local
 - name: github.com/howeyc/gopass
   version: bf9dde6d0d2c004a008c27aaee91170c786f6db8
 - name: github.com/imdario/mergo
@@ -92,10 +110,6 @@ imports:
   - client/v2
   - models
   - pkg/escape
-- name: github.com/graymeta/stow
-  version: da285caa6daa337ae04a9ac603dbaf9009ffe687
-  subpackages:
-  - local
 - name: github.com/jonboulle/clockwork
   version: 2eee05ed794112d45db504eb05aa693efd2b8b09
 - name: github.com/juju/ratelimit
@@ -109,7 +123,7 @@ imports:
 - name: github.com/mholt/archiver
   version: fe92d3d85a514d2752ad3b61ec412b598a2754f9
 - name: github.com/nats-io/go-nats
-  version: 6949c8e06a246e4177961aab22940b5c411e48f0
+  version: 9147cfac69833916f9c73353ba43f939815c330a
   subpackages:
   - encoders/builtin
   - util
@@ -118,7 +132,7 @@ imports:
   subpackages:
   - pb
 - name: github.com/nats-io/nats-streaming-server
-  version: 7a922646104d066c98527959455993231fadd168
+  version: 9ebc07951af540e177f6a5bb0424f716fd867074
   subpackages:
   - util
 - name: github.com/nats-io/nuid
@@ -141,8 +155,10 @@ imports:
   version: df38d32658d8788cd446ba74db4bb5375c4b0cb3
 - name: github.com/satori/go.uuid
   version: 879c5887cd475cd7864858769793b2ceb0d44feb
+- name: github.com/satori/uuid
+  version: 5bf94b69c6b68ee1b541973bb8e1144db23a194b
 - name: github.com/sirupsen/logrus
-  version: ba1b36c82c5e05c4f912a88eab0dcd91a171688f
+  version: 68cec9f21fbf3ea8d8f98c044bc6ce05f17b267a
 - name: github.com/spf13/pflag
   version: 08b1a584251b5b62f458943640fc8ebd4d50aaa5
 - name: github.com/ugorji/go
@@ -156,13 +172,13 @@ imports:
   - internal/xlog
   - lzma
 - name: github.com/urfave/cli
-  version: 0bdeddeeb0f650497d603c4ad7b20cfe685682f6
+  version: cfb38830724cc34fedffe9a2a29fb54fa9169cd1
 - name: golang.org/x/crypto
   version: 9477e0b78b9ac3d0b03822fd95422e2fe07627cd
   subpackages:
   - ssh/terminal
 - name: golang.org/x/net
-  version: 6acef71eb69611914f7a30939ea9f6e194c78172
+  version: 4876518f9e71663000c348837735820161a42df7
   subpackages:
   - context
   - http2
@@ -180,8 +196,11 @@ imports:
   subpackages:
   - unix
 - name: golang.org/x/text
-  version: a263ba8db058568bb9beba166777d9c9dbe75d68
+  version: 1cbadb444a806fd9430d14ad08967ed91da4fa0a
+  repo: https://github.com/golang/text.git
+  vcs: git
   subpackages:
+  - .
   - cases
   - internal
   - internal/tag
@@ -215,7 +234,7 @@ imports:
 - name: gopkg.in/inf.v0
   version: 3887ee99ecf07df5b447e9b00d9c0b2adaa9f3e4
 - name: gopkg.in/yaml.v2
-  version: 53feefa2559fb8dfa8d81baad31be332c97d6c77
+  version: bef53efd0c76e49e6de55ead051f886bea7e9420
 - name: k8s.io/client-go
   version: 843f7c4f28b1f647f664f883697107d5c02c5acc
   subpackages:
@@ -297,6 +316,7 @@ imports:
   - 1.5/pkg/util/errors
   - 1.5/pkg/util/flowcontrol
   - 1.5/pkg/util/framer
+  - 1.5/pkg/util/homedir
   - 1.5/pkg/util/integer
   - 1.5/pkg/util/intstr
   - 1.5/pkg/util/json
@@ -318,7 +338,11 @@ imports:
   - 1.5/plugin/pkg/client/auth/gcp
   - 1.5/plugin/pkg/client/auth/oidc
   - 1.5/rest
+  - 1.5/tools/auth
+  - 1.5/tools/clientcmd
   - 1.5/tools/clientcmd/api
+  - 1.5/tools/clientcmd/api/latest
+  - 1.5/tools/clientcmd/api/v1
   - 1.5/tools/metrics
   - 1.5/transport
 testImports: []
