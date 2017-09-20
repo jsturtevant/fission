@@ -90,7 +90,7 @@ func MakeMessageQueueTriggerManager(fissionClient *tpr.FissionClient, routerUrl 
 	case NATS:
 		messageQueue, err = makeNatsMessageQueue(routerUrl, mqConfig)
 	case ASQ:
-		messageQueue, err = makeAsqMessageQueue(routerUrl, mqConfig)
+		messageQueue, err = newAzureStorageConnection(routerUrl, mqConfig)
 	default:
 		err = errors.New("No matched message queue type found")
 	}
@@ -227,7 +227,8 @@ func IsTopicValid(mqType string, topic string) bool {
 	case NATS:
 		return isTopicValidForNats(topic)
 	case ASQ:
-		return isTopicValidForAzure(topic)
+		// All topics (queue names) are valid for Azure storage
+		return true
 	}
 	return false
 }
