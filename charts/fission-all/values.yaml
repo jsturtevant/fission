@@ -57,6 +57,7 @@ nats:
 ## Required if messageQueue type is azure-storage-queue
 azureStorageQueue:
   key: ""
+  name: ""
 
 
 ## Persist data to a persistent volume.
