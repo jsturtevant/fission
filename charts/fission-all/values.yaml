@@ -42,15 +42,22 @@ logger:
   influxdbAdmin: "admin"
   fluentdImage: fission/fluentd
 
+## Type of Queue you would like to use
+## currently supports nats-streaming, azure-storage-queue
 messageQueue:
   type: nats-streaming
+  url: nats://defaultFissionAuthToken@nats-streaming:4222
 
 ## Message queue trigger config
 ### NATS Streaming
 nats:
   authToken: "defaultFissionAuthToken"
   clusterID: "fissionMQTrigger"
-  
+
+## Required if messageQueue type is azure-storage-queue
+azureStorageQueue:
+  key: ""
+
 
 ## Persist data to a persistent volume.
 persistence:
