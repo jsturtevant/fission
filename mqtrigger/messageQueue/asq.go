@@ -56,3 +56,8 @@ func (asq Asq) subscribe(trigger *tpr.Messagequeuetrigger) (messageQueueSubscrip
 func (asq Asq) unsubscribe(subscription messageQueueSubscription) error {
 	return nil
 }
+
+func isTopicValidForAzure(topic string) bool {
+	// TODO
+	return true
+}

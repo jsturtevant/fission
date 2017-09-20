@@ -29,7 +29,7 @@ import (
 
 const (
 	NATS string = "nats-streaming"
-	ASQ string = "azure-storage-queue"
+	ASQ  string = "azure-storage-queue"
 )
 
 const (
@@ -226,6 +226,8 @@ func IsTopicValid(mqType string, topic string) bool {
 	switch mqType {
 	case NATS:
 		return isTopicValidForNats(topic)
+	case ASQ:
+		return isTopicValidForAzure(topic)
 	}
 	return false
 }
