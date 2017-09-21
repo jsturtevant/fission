@@ -18,6 +18,7 @@ package messageQueue
 
 import (
 	"errors"
+	"regexp"
 	"time"
 
 	log "github.com/sirupsen/logrus"
@@ -36,6 +37,10 @@ const (
 	ADD_TRIGGER requestType = iota
 	DELETE_TRIGGER
 	GET_ALL_TRIGGERS
+)
+
+var (
+	validAzureQueueName = regexp.MustCompile("^[a-z0-9][a-z0-9\\-]*[a-z0-9]$")
 )
 
 type (
@@ -227,8 +232,7 @@ func IsTopicValid(mqType string, topic string) bool {
 	case NATS:
 		return isTopicValidForNats(topic)
 	case ASQ:
-		// All topics (queue names) are valid for Azure storage
-		return true
+		return len(topic) >= 3 && len(topic) <= 63 && validAzureQueueName.MatchString(topic)
 	}
 	return false
 }
